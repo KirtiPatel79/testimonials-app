@@ -41,6 +41,14 @@ const App = () => {
     navigator.clipboard.writeText(iframe);
   };
 
+  const renderStars = (rating) => {
+    const stars = [];
+    for (let i = 0; i < rating; i++) {
+      stars.push('⭐');
+    }
+    return stars.join(' ');
+  };
+
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">Submit a Testimonial</h1>
@@ -87,9 +95,9 @@ const App = () => {
       <ul className="space-y-4">
         {testimonials.map((testimonial) => (
           <li key={testimonial._id} className="p-4 border border-gray-300 rounded-md shadow-sm">
-            <h3 className="text-lg font-medium">{testimonial.name}</h3>
-            <p className="text-sm">{testimonial.review}</p>
-            <p className="text-sm">Rating: {testimonial.rating}</p>
+            <div className="text-sm">{testimonial.review}</div>
+            <div className="text-lg font-medium mt-2">{testimonial.name}</div>
+            <div className="text-sm mt-2">{renderStars(testimonial.rating)}</div>
           </li>
         ))}
       </ul>
