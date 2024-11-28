@@ -2,7 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-
+const env = require("dotenv")
+env.config();
 const app = express();
 const port = process.env.PORT || 5000;
 
@@ -11,7 +12,7 @@ app.use(bodyParser.json());
 
 mongoose
   .connect(
-    "mongodb+srv://KirtiPatel21:Kp202021@cluster0.unom2.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+    process.env.mongouri,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
