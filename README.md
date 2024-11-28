@@ -68,3 +68,21 @@ To display the testimonials on your website, add the following script tag to you
 ```
 
 Replace `http://your-server-url` with the actual URL of your server. The testimonials will be automatically fetched and displayed in the `#testimonials` div.
+
+## New Feature: Generating the Script Tag
+
+With the new feature, you can now generate the script tag directly from the client application. Follow these steps:
+
+1. Open the client application in your browser.
+2. Click the "Generate Script Tag" button.
+3. The script tag will be generated and copied to your clipboard.
+4. Paste the script tag into your HTML file where you want the testimonials to appear.
+
+The generated script tag will look like this:
+
+```html
+<script src="http://localhost:5000/testimonials.js"></script>
+<div id="testimonials"></div>
+```
+
+Replace `http://localhost:5000` with the actual URL of your server if it's different.

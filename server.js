@@ -35,6 +35,29 @@ app.get('/api/testimonials', async (req, res) => {
   res.status(200).send(testimonials);
 });
 
+app.get('/testimonials.js', (req, res) => {
+  const script = `
+    document.addEventListener('DOMContentLoaded', function() {
+      fetch('http://localhost:5000/api/testimonials')
+        .then(response => response.json())
+        .then(testimonials => {
+          const testimonialsDiv = document.getElementById('testimonials');
+          testimonials.forEach(testimonial => {
+            const testimonialElement = document.createElement('div');
+            testimonialElement.innerHTML = \`
+              <h3>\${testimonial.name}</h3>
+              <p>\${testimonial.review}</p>
+              <p>Rating: \${testimonial.rating}</p>
+            \`;
+            testimonialsDiv.appendChild(testimonialElement);
+          });
+        });
+    });
+  `;
+  res.setHeader('Content-Type', 'application/javascript');
+  res.send(script);
+});
+
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
 });
