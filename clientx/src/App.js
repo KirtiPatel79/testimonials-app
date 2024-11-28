@@ -29,7 +29,7 @@ const App = () => {
   return (
     <div>
       <h1>Submit a Testimonial</h1>
-      {/* <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <div>
           <label>Name:</label>
           <input
@@ -69,7 +69,7 @@ const App = () => {
             <p>Rating: {testimonial.rating}</p>
           </li>
         ))}
-      </ul> */}
+      </ul>
     </div>
   );
 };
