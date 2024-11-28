@@ -12,14 +12,14 @@ const App = () => {
   }, []);
 
   const fetchTestimonials = async () => {
-    const response = await axios.get('/api/testimonials');
+    const response = await axios.get('http://localhost:5000/api/testimonials');
     setTestimonials(response.data);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newTestimonial = { name, review, rating };
-    await axios.post('/api/testimonials', newTestimonial);
+    await axios.post('http://localhost:5000/api/testimonials', newTestimonial);
     fetchTestimonials();
     setName('');
     setReview('');
