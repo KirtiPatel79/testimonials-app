@@ -86,3 +86,20 @@ The generated script tag will look like this:
 ```
 
 Replace `http://localhost:5000` with the actual URL of your server if it's different.
+
+## New Feature: Generating the Iframe Tag
+
+With the new feature, you can now generate the iframe tag directly from the client application. Follow these steps:
+
+1. Open the client application in your browser.
+2. Click the "Generate Iframe Tag" button.
+3. The iframe tag will be generated and copied to your clipboard.
+4. Paste the iframe tag into your HTML file where you want the testimonials to appear.
+
+The generated iframe tag will look like this:
+
+```html
+<iframe src="http://localhost:5000/testimonials-iframe" width="100%" height="400px" frameborder="0"></iframe>
+```
+
+Replace `http://localhost:5000` with the actual URL of your server if it's different.

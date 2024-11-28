@@ -7,7 +7,8 @@ const App = () => {
   const [name, setName] = useState('');
   const [review, setReview] = useState('');
   const [rating, setRating] = useState(1);
-  const [scriptTag, setScriptTag] = useState(''); // P8f63
+  const [scriptTag, setScriptTag] = useState('');
+  const [iframeTag, setIframeTag] = useState('');
 
   useEffect(() => {
     fetchTestimonials();
@@ -28,10 +29,16 @@ const App = () => {
     setRating(1);
   };
 
-  const generateScriptTag = () => { // P1aaa
+  const generateScriptTag = () => {
     const script = `<script src="http://localhost:5000/testimonials.js"></script><div id="testimonials"></div>`;
     setScriptTag(script);
     navigator.clipboard.writeText(script);
+  };
+
+  const generateIframeTag = () => {
+    const iframe = `<iframe src="http://localhost:5000/testimonials-iframe" width="100%" height="400px" frameborder="0"></iframe>`;
+    setIframeTag(iframe);
+    navigator.clipboard.writeText(iframe);
   };
 
   return (
@@ -86,16 +93,28 @@ const App = () => {
           </li>
         ))}
       </ul>
-      <button // P8408
+      <button
         onClick={generateScriptTag}
         className="mt-8 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
       >
         Generate Script Tag
       </button>
-      {scriptTag && ( // P8408
+      {scriptTag && (
         <div className="mt-4 p-4 border border-gray-300 rounded-md shadow-sm">
           <h2 className="text-lg font-medium">Generated Script Tag:</h2>
           <pre className="text-sm">{scriptTag}</pre>
+        </div>
+      )}
+      <button
+        onClick={generateIframeTag}
+        className="mt-8 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+      >
+        Generate Iframe Tag
+      </button>
+      {iframeTag && (
+        <div className="mt-4 p-4 border border-gray-300 rounded-md shadow-sm">
+          <h2 className="text-lg font-medium">Generated Iframe Tag:</h2>
+          <pre className="text-sm">{iframeTag}</pre>
         </div>
       )}
     </div>
